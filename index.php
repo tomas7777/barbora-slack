@@ -2,8 +2,9 @@
 
 require_once 'vendor/autoload.php';
 
-$cookie = '';
+$barboraCookie = '';
 $slackToken = '';
+$slackChannel = '';
 
 $barboraClient = new \GuzzleHttp\Client([
     'base_uri' => 'https://barbora.lt',
@@ -15,7 +16,7 @@ $response = $barboraClient->request(
     [
         'headers' => [
             'Authorization' => 'Basic YXBpa2V5OlNlY3JldEtleQ==',
-            'Cookie' => $cookie,
+            'Cookie' => $barboraCookie,
         ],
     ]
 );
@@ -49,9 +50,9 @@ foreach ($validTimes as $validTime) {
                 'Content-Type' => 'application/json',
             ],
             'body' => json_encode([
-              'channel' => 'C010XA916EM',
+              'channel' => $slackChannel,
               'text' => sprintf('Valid time: %s - %s', $validTime['day'], $validTime['hour']),
-          ])
+            ])
         ]
     );
 }
