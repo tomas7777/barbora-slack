@@ -41,7 +41,7 @@ $slackClient = new \GuzzleHttp\Client([
 ]);
 
 foreach ($validTimes as $validTime) {
-    $response = $slackClient->request(
+    $slackClient->request(
         'POST',
         '/api/chat.postMessage',
         [
@@ -50,9 +50,9 @@ foreach ($validTimes as $validTime) {
                 'Content-Type' => 'application/json',
             ],
             'body' => json_encode([
-              'channel' => $slackChannel,
-              'text' => sprintf('Valid time: %s - %s', $validTime['day'], $validTime['hour']),
-            ])
+                'channel' => $slackChannel,
+                'text' => sprintf('Valid time: %s - %s', $validTime['day'], $validTime['hour']),
+            ]),
         ]
     );
 }
