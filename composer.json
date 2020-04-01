@@ -1,0 +1,15 @@
+{
+    "name": "",
+    "description": "",
+    "keywords": [],
+    "type": "project",
+    "require": {
+        "php": ">=7.0",
+        "guzzlehttp/guzzle": "^6.5",
+        "ext-json": "*"
+    },
+    "config": {
+        "sort-packages": true,
+        "bin-dir": "bin"
+    }
+}
